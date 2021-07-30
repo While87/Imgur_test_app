@@ -8,19 +8,21 @@
 import Foundation
 
 class MainDefaultPresenter: MainPresenter {
-    
+
     weak var view: MainView?
     var router: MainRouter?
     var interactor: MainInteractor? {
         didSet {
-            //Start load gallery after start application
+            //Start load gallery after init current class
             self.interactor?.getGalleryItems()
         }
     }
+    func routerShowDetails(data: AnyObject) {
+        self.router?.showDetailsView(data: data)
+    }
     
-    //show image details view
-    func showDetails(id: Int) {
-        self.router?.showDetailsView(id: id)
+    func getDetails(id: Int) {
+        self.interactor?.getGalleryItem(id: id)
     }
     
     func getGallery() {

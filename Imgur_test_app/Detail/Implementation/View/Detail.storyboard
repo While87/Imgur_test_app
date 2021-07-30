@@ -88,7 +88,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ehg-CC-PJg">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ehg-CC-PJg">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -105,6 +105,16 @@
                             <constraint firstItem="G6m-p9-A2f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="nuP-M3-iOV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="heightLabel" destination="zsY-R6-oOp" id="qWU-KS-zLx"/>
+                        <outlet property="idLabel" destination="Vjj-Om-PKY" id="8jR-v9-XjQ"/>
+                        <outlet property="linkLabel" destination="MVG-yW-6pa" id="IOW-Px-29f"/>
+                        <outlet property="tableView" destination="vqt-P4-59K" id="o9j-eW-o44"/>
+                        <outlet property="typeLabel" destination="bSi-6h-ZqK" id="9sj-I9-XAF"/>
+                        <outlet property="viewsLabel" destination="0zi-Px-ptn" id="nJx-K5-ucO"/>
+                        <outlet property="waitIndicator" destination="ehg-CC-PJg" id="gc6-0F-tzh"/>
+                        <outlet property="widthLabel" destination="y1U-ys-wNo" id="n5q-es-OOw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,5 +12,5 @@ protocol MainRouter: AnyObject {
     var presenter: MainPresenter? { get set }
     var viewController: UIViewController? { get set }
     
-    func showDetailsView(id: Int)
+    func showDetailsView(data: AnyObject)
 }

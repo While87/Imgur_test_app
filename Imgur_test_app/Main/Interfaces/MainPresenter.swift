@@ -12,10 +12,9 @@ protocol MainPresenter: AnyObject {
     var interactor: MainInteractor? { get set }
     var router: MainRouter? { get set }
     
-    func showDetails(id: Int)
-    
+    func routerShowDetails(data: AnyObject)
+    func getDetails(id: Int)
     func getGallery()
-    
     func interactorDidFetchGallery(with result: Result<[String], Error>)
     func interactorDidDownloadImage(with result: Result<AnyObject, Error>)
 }

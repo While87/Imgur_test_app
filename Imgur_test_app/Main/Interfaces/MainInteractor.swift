@@ -12,5 +12,6 @@ protocol MainInteractor {
     
     func getGalleryItems()
     func getImages()
+    func getGalleryItem(id: Int)
     
 }

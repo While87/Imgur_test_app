@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class DetailDefaultRouter: DetailRouter {
-    
+
     weak var presenter: DetailPresenter?
     weak var viewController: UIViewController?
     
@@ -17,6 +17,5 @@ class DetailDefaultRouter: DetailRouter {
         let viewController = DetailModule().build()
         viewController.modalPresentationStyle = .automatic
         self.viewController?.present(viewController, animated: true, completion: nil)
-    }
-    
+    }    
 }

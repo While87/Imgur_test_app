@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 
-class MainDefaultRouter: MainRouter {
+class MainDefaultRouter: MainRouter {    
     
     weak var presenter: MainPresenter?
     weak var viewController: UIViewController?
     
-    func showDetailsView(id: Int) {
+    func showDetailsView(data: AnyObject) {
         let detailViewController = DetailModule().build()
+        let vc = detailViewController as! DetailDefaultView
+        vc.presenter?.updateImageData(data: data)
         detailViewController.modalPresentationStyle = .automatic
         self.viewController?.present(detailViewController, animated: true, completion: nil)
     }

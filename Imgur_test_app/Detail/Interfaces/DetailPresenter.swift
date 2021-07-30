@@ -11,4 +11,8 @@ protocol DetailPresenter: AnyObject {
     var view: DetailView? { get set }
     var interactor: DetailInteractor? { get set }
     var router: DetailRouter? { get set }
+    
+    func interactorDidFetchComments(with result: Result<AnyObject, Error>)
+    func getComments(id: String)
+    func updateImageData(data: AnyObject)
 }

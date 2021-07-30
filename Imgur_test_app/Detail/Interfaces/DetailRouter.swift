@@ -11,5 +11,4 @@ import UIKit
 protocol DetailRouter: AnyObject {
     var presenter: DetailPresenter? { get set }
     var viewController: UIViewController? { get set }
-    func showDetail()
 }

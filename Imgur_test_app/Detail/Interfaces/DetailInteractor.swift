@@ -9,4 +9,6 @@ import Foundation
 
 protocol DetailInteractor {
     var presenter: DetailPresenter? { get set }
+    
+    func getComments(id: String)
 }

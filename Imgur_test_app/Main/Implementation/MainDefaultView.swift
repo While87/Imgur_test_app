@@ -20,13 +20,15 @@ class MainDefaultView: UIViewController, MainView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        waitIndicator.center = self.view.center
-        
         //Register custom collection cell
         self.collectionView.register(UINib(nibName: "CustomCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        waitIndicator.center = self.view.center
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -84,6 +86,6 @@ extension MainDefaultView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presenter?.showDetails(id: indexPath.item)
+        self.presenter?.getDetails(id: indexPath.item)
     }
 }
