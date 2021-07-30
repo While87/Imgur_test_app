@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="gTV-IL-0wX" customClass="CustomCell" customModule="Imgur_test_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="387"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="437" height="387"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-li-x2P">
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="356"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvn-vP-5oZ">
+                        <rect key="frame" x="10" y="361" width="417" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="pHv-dl-QZB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemBlueColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rvn-vP-5oZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Abs-TU-Jyd"/>
+                <constraint firstItem="rvn-vP-5oZ" firstAttribute="top" secondItem="nyt-li-x2P" secondAttribute="bottom" constant="5" id="DPu-Oa-Gnz"/>
+                <constraint firstItem="nyt-li-x2P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IMh-9V-V8l"/>
+                <constraint firstItem="nyt-li-x2P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h5g-P0-3pS"/>
+                <constraint firstAttribute="trailing" secondItem="nyt-li-x2P" secondAttribute="trailing" id="nYe-pN-dc0"/>
+                <constraint firstAttribute="trailing" secondItem="rvn-vP-5oZ" secondAttribute="trailing" constant="10" id="uDy-nb-8l1"/>
+                <constraint firstAttribute="bottom" secondItem="rvn-vP-5oZ" secondAttribute="bottom" constant="5" id="xjN-84-HQL"/>
+            </constraints>
+            <size key="customSize" width="437" height="387"/>
+            <connections>
+                <outlet property="imageCell" destination="nyt-li-x2P" id="cfl-Yg-b5s"/>
+                <outlet property="labelCell" destination="rvn-vP-5oZ" id="ssB-KJ-vLO"/>
+            </connections>
+            <point key="canvasLocation" x="412.31884057971018" y="264.84375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
