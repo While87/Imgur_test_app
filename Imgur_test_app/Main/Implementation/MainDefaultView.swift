@@ -8,20 +8,14 @@
 import UIKit
 
 class MainDefaultView: UIViewController, MainView {
-
-  
     
     var presenter: MainPresenter?
     
     var gallery: [String] = []
     var images: [UIImage] = []
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     
-    //temp data collection
-    var item: [(UIImage, String)] = []
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var waitIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +29,12 @@ class MainDefaultView: UIViewController, MainView {
         collectionView.dataSource = self
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     func updateCollection(with gallery: [String]) {
         self.gallery = gallery
         DispatchQueue.main.async {
@@ -43,35 +43,33 @@ class MainDefaultView: UIViewController, MainView {
         }
     }
     
-    func updateImage(with data: Data) {
-        images.append(UIImage(data: data)!)
+    func updateImage(with data: AnyObject) {
+        self.images.append(data as! UIImage)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
+    
     func updateError(with error: String) {
-        waitIndicator.isHidden = true
-        errorLabel.isHidden = false
-        errorLabel.text = error
+        DispatchQueue.main.async {
+            self.waitIndicator.isHidden = true
+            
+            let alert = UIAlertController(title: "Warning!", message: error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "I am sad 😭", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
-    
 }
 
 extension MainDefaultView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gallery.count
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         cell.labelCell.text = gallery[indexPath.item]
-        
-        if images.count > indexPath.item || images.count == 0 {
-            self.presenter?.getImage(id: indexPath.item)
-        } else {
-            cell.imageCell.image = images[indexPath.item]
-        }
+        cell.imageCell.image = images[indexPath.item]
         return cell
     }
     

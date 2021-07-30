@@ -42,28 +42,18 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27g-IF-q9p">
-                                <rect key="frame" x="0.0" y="39" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="27g-IF-q9p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ABI-kb-gvk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IWo-Xu-DpZ" secondAttribute="trailing" id="ENL-uW-jmR"/>
                             <constraint firstItem="IWo-Xu-DpZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Knt-SS-wUg"/>
-                            <constraint firstItem="27g-IF-q9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S0n-JO-Ok6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IWo-Xu-DpZ" secondAttribute="bottom" id="teC-4H-Is9"/>
                             <constraint firstItem="IWo-Xu-DpZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zf5-zc-xmt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="IWo-Xu-DpZ" id="f3c-jV-4W2"/>
-                        <outlet property="errorLabel" destination="27g-IF-q9p" id="edJ-8n-x8v"/>
                         <outlet property="waitIndicator" destination="Wlo-dC-pYJ" id="22l-nx-ZwX"/>
                     </connections>
                 </viewController>

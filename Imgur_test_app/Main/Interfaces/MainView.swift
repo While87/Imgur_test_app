@@ -11,6 +11,6 @@ protocol MainView: AnyObject {
     var presenter: MainPresenter? { get set }
     
     func updateCollection(with gallery: [String])
-    func updateImage(with data: Data)
+    func updateImage(with data: AnyObject)
     func updateError(with error: String)
 }

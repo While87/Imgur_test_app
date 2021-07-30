@@ -14,9 +14,9 @@ class MainDefaultRouter: MainRouter {
     weak var viewController: UIViewController?
     
     func showDetailsView(id: Int) {
-        let viewController = DetailModule().build()
-        viewController.modalPresentationStyle = .fullScreen
-        self.viewController?.present(viewController, animated: true, completion: nil)
+        let detailViewController = DetailModule().build()
+        detailViewController.modalPresentationStyle = .automatic
+        self.viewController?.present(detailViewController, animated: true, completion: nil)
     }
     
 }

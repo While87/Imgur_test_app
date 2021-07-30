@@ -11,7 +11,7 @@ import UIKit
 class DetailModule {
     
     func build() -> UIViewController {
-        let view = DetailDefaultView()
+        let view = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "Detail") as! DetailDefaultView
         let interactor = DetailDefaultInteractor()
         let presenter = DetailDefaultPresenter()
         let router = DetailDefaultRouter()

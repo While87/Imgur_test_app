@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 class MainDefaultInteractor: MainInteractor {
-  
+    
     weak var presenter: MainPresenter?
     
     var gallery: [PostData] = []
     
     func getGalleryItems() {
-
+        
         let url = "https://api.imgur.com/3/gallery/hot/viral/all/1?q_tags=image"
         let clientID = "9a17a14b9f227d9" //From registered App in admin section imgure site
         var tempGallery: [String] = []
@@ -31,7 +32,10 @@ class MainDefaultInteractor: MainInteractor {
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request) { [weak self] (data, _, error) in
-            guard let data = data, error == nil else {return}
+            guard let data = data, error == nil else {
+                self?.presenter?.interactorDidFetchGallery(with: .failure(error!))
+                return
+            }
             do {
                 let entities = try JSONDecoder().decode(GalleryPost.self, from: data)
                 
@@ -50,8 +54,18 @@ class MainDefaultInteractor: MainInteractor {
         }.resume()
     }
     
-    func getImage(id: Int) {
-        let url = URL(string: (gallery[id].images?[0].link)!)
+    func getImages() {
+        for i in gallery {
+            let url = i.images![0].link
+            downloadImage(url: url) { image in
+                let anyObject: AnyObject = image as AnyObject
+                self.presenter?.interactorDidDownloadImage(with: .success(anyObject))
+            }
+        }
+    }
+    
+    func downloadImage(url: String, completion: ((UIImage) -> Void)?) {
+        let url = URL(string: url)
         guard let url = url else { return }
         
         URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
@@ -59,7 +73,8 @@ class MainDefaultInteractor: MainInteractor {
                 self?.presenter?.interactorDidDownloadImage(with: .failure(error!))
                 return
             }
-            self?.presenter?.interactorDidDownloadImage(with: .success(data))
+            completion!(UIImage(data: data)!)
         }.resume()
     }
+    
 }

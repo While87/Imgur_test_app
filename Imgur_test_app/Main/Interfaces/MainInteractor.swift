@@ -11,6 +11,6 @@ protocol MainInteractor {
     var presenter: MainPresenter? { get set }
     
     func getGalleryItems()
-    func getImage(id: Int)
+    func getImages()
     
 }

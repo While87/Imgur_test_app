@@ -15,8 +15,7 @@ protocol MainPresenter: AnyObject {
     func showDetails(id: Int)
     
     func getGallery()
-    func getImage(id: Int)
     
     func interactorDidFetchGallery(with result: Result<[String], Error>)
-    func interactorDidDownloadImage(with result: Result< Data, Error>)
+    func interactorDidDownloadImage(with result: Result<AnyObject, Error>)
 }

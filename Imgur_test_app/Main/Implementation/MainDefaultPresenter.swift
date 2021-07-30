@@ -27,25 +27,22 @@ class MainDefaultPresenter: MainPresenter {
         self.interactor?.getGalleryItems()
     }
     
-    func getImage(id: Int) {
-        self.interactor?.getImage(id: id)
-    }
-    
     func interactorDidFetchGallery(with result: Result<[String], Error>) {
         switch result {
         case .success(let gallery):
             self.view?.updateCollection(with: gallery)
+            self.interactor?.getImages()
         case .failure(let error):
-            self.view?.updateError(with: "Все пошло не по плану 😭 \n\(error.localizedDescription)")
+            self.view?.updateError(with: error.localizedDescription)
         }
     }
     
-    func interactorDidDownloadImage(with result: Result<Data, Error>) {
+    func interactorDidDownloadImage(with result: Result<AnyObject, Error>) {
         switch result {
         case .success(let data):
             self.view?.updateImage(with: data)
         case .failure(let error):
-            self.view?.updateError(with: "Все пошло не по плану 😭 \n\(error.localizedDescription)")
+            self.view?.updateError(with: error.localizedDescription)
         }
     }
 }
